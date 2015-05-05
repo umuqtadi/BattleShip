@@ -104,7 +104,7 @@ namespace BattleShip
             ListOfShips.Add(new Ship(Ship.ShipType.Submarine));
             ListOfShips.Add(new Ship(Ship.ShipType.Minesweeper));
 
-            this.ListOfShips = PlaceShip();
+            PlaceShip(Ship.ShipType.Carrier,PlaceShipDirection.Horizontal, 0, 2 );
 
             
 
@@ -115,6 +115,17 @@ namespace BattleShip
         {
             for (int i = 0; i < shipToPlace.Length; i++)
             {
+                if (Ocean[startX, startY].Status == Point.PointStatus.Ship)
+                {
+                    if (direction == PlaceShipDirection.Horizontal)
+                    {
+                        startX++;
+                    }
+                    else
+                    {
+                        startY++;
+                    }
+                }
                 
             }
         }
